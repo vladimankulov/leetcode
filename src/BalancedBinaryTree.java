@@ -1,6 +1,3 @@
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class BalancedBinaryTree {
 
     // Definition for a binary tree node.
