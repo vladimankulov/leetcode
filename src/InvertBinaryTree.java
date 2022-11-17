@@ -1,6 +1,3 @@
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class InvertBinaryTree {
 
     public static class TreeNode {
@@ -34,6 +31,7 @@ public class InvertBinaryTree {
         invert(root);
         return root;
     }
+
     private static void invert(TreeNode current) {
         if (current == null) {
             return;
