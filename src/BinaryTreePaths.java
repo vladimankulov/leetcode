@@ -25,13 +25,9 @@ public class BinaryTreePaths {
   }
 
   public static void main(String[] args) {
-    TreeNode node = new TreeNode(1, new TreeNode(2, null, new TreeNode(5)), new TreeNode(3));
+    TreeNode node = new TreeNode(1, new TreeNode(2, new TreeNode(4), new TreeNode(5)), new TreeNode(3));
     System.out.println(binaryTreePaths(node));
   }
-
-  //   1
-  // 2   3
-  //  5
   public static List<String> binaryTreePaths(TreeNode root) {
     if (root == null) {
       return Collections.emptyList();
@@ -39,8 +35,23 @@ public class BinaryTreePaths {
     if (root.left == null && root.right == null) {
       return List.of(Integer.toString(root.val));
     }
+    List<String> results = new LinkedList<>();
+    printLeaf(root, new StringBuilder(), results);
+    return results;
+  }
 
-    List<String> result = new LinkedList<>();
-    return result;
+  private static void printLeaf(TreeNode node, StringBuilder builder, List<String> results) {
+    if (node == null) {
+      return;
+    }
+    if (node.left == null && node.right == null) {
+      results.add(builder.append(node.val).toString());
+      return;
+    }
+    final int length = builder.length();
+    printLeaf(node.left, builder.append(node.val).append("->"), results);
+    builder.setLength(length);
+    printLeaf(node.right, builder.append(node.val).append("->"), results);
+    builder.setLength(length);
   }
 }
