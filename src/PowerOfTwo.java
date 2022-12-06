@@ -1,7 +1,7 @@
 public class PowerOfTwo {
 
     public static void main(String[] args) {
-        System.out.println(isPowerOfTwo(16));
+        System.out.println(243 / 30);
     }
 
     public static boolean isPowerOfTwo(int n) {
